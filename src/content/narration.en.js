@@ -1,0 +1,17 @@
+export const NARRATION_EN = {
+  greeting: "Hello. What would you like to do? You can buy data, buy airtime, or send money.",
+  ask_recipient: "Who do you want to send money to? You can say a name like Prince or Nasamu.",
+  ask_amount_send: "How much do you want to send?",
+  ask_who_airtime: "Is the airtime for you, or for someone else?",
+  ask_amount_airtime: "How much airtime do you want? For example five cedis.",
+  ask_duration: "For how long — a day, a week, or a month?",
+  ask_spend_flexi: "The Flexi bundle does not expire. How much do you want to spend — one cedi, three cedis, or more?",
+  social_intro: "The Social bundle is for WhatsApp and Facebook. For how long — a day, a week, or a month?",
+  mashup_intro: "Mashup combines calls, data and SMS. How much — one, five, ten or thirty cedis?",
+  enter_pin: "Please enter your PIN on the screen to confirm your transaction.",
+  complete: "Your transaction is complete. Is there anything else?",
+  not_understood: "Sorry, I didn't quite get that. I can buy data or airtime, send money, check your balance, or answer a question. What would you like?",
+  ai_unavailable: "I couldn't reach my assistant to answer that just now. Please try again in a moment. Meanwhile, I can buy data or airtime, send money, or check your balance.",
+  cancelled: "No problem. What would you like to do instead?",
+  ask_reference: "What reference should I use? For example Rent or School fees. Say skip if none.",
+};

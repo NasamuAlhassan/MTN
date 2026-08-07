@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 400" width="1240" height="400" role="img" aria-label="Request flow for one voice turn: the microphone feeds speech recognition (Groq Whisper, then Khaya v3, then Web Speech); Twi and Kusaal are translated to English by Khaya; understanding runs rules first with an optional LLM; the dialogue state machine fills slots and produces a readback; output goes to the prefilled screen and to text-to-speech. Every provider call passes through a same-origin proxy so API keys stay on the server.">
+  <defs>
+    <linearGradient id="p-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B0B0C"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+    <radialGradient id="p-pulse" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FFCB05" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#FFCB05" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="p-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#3A3A42"/>
+    </marker>
+
+    <style><![CDATA[
+      .f { font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+      .m { font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; }
+
+      .link { stroke: #3A3A42; stroke-width: 2; fill: none; }
+      .flow {
+        stroke: #FFCB05; stroke-width: 2; fill: none; stroke-opacity: 0.65;
+        stroke-dasharray: 5 11;
+        animation: march 0.9s linear infinite;
+      }
+      @keyframes march { to { stroke-dashoffset: -16; } }
+
+      .node { fill: #121214; stroke: #2C2C33; stroke-width: 1.5; }
+      .lit  { animation: lit 5s ease-in-out infinite; }
+      @keyframes lit {
+        0%, 100% { stroke: #2C2C33; }
+        50%      { stroke: #FFCB05; stroke-opacity: 0.55; }
+      }
+      .l2 { animation-delay: 0.6s; }
+      .l3 { animation-delay: 1.2s; }
+      .l4 { animation-delay: 1.8s; }
+      .l5 { animation-delay: 2.4s; }
+      .l6 { animation-delay: 3.0s; }
+    ]]></style>
+  </defs>
+
+  <rect width="1240" height="400" fill="url(#p-bg)"/>
+
+  <!-- connectors -->
+  <g class="link" marker-end="url(#p-arrow)">
+    <path d="M164 140 H194"/>
+    <path d="M376 140 H406"/>
+    <path d="M588 140 H618"/>
+    <path d="M800 140 H830"/>
+  </g>
+  <g class="flow">
+    <path d="M164 140 H196"/>
+    <path d="M376 140 H408"/>
+    <path d="M588 140 H620"/>
+    <path d="M800 140 H832"/>
+    <path d="M1012 140 H1030 Q1042 140 1042 128 V110 Q1042 98 1054 98"/>
+    <path d="M1012 140 H1030 Q1042 140 1042 152 V194 Q1042 206 1054 206"/>
+  </g>
+
+  <!-- travelling pulse -->
+  <circle r="16" fill="url(#p-pulse)">
+    <animateMotion dur="5s" repeatCount="indefinite" path="M100,140 H1042"/>
+  </circle>
+  <circle r="4" fill="#FFCB05">
+    <animateMotion dur="5s" repeatCount="indefinite" path="M100,140 H1042"/>
+  </circle>
+
+  <!-- 1 · mic -->
+  <rect class="node lit" x="36" y="96" width="128" height="88" rx="16"/>
+  <g transform="translate(100,128)" fill="#FFCB05">
+    <rect x="-5" y="-14" width="10" height="19" rx="5"/>
+    <path d="M-10 0a10 10 0 0 0 20 0" fill="none" stroke="#FFCB05" stroke-width="2.6" stroke-linecap="round"/>
+    <rect x="-1.2" y="6" width="2.4" height="6" rx="1.2"/>
+  </g>
+  <text class="f" x="100" y="166" text-anchor="middle" font-size="12.5" font-weight="800" fill="#EDEDF0">USER SPEAKS</text>
+
+  <!-- 2 · asr -->
+  <rect class="node lit l2" x="194" y="96" width="182" height="88" rx="16"/>
+  <text class="f" x="285" y="124" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">SPEECH &#8594; TEXT</text>
+  <text class="f" x="285" y="145" text-anchor="middle" font-size="11" font-weight="600" fill="#8A8A92">Groq Whisper &#8250; Khaya v3</text>
+  <text class="f" x="285" y="160" text-anchor="middle" font-size="11" font-weight="600" fill="#8A8A92">&#8250; Web Speech</text>
+  <text class="m" x="285" y="176" text-anchor="middle" font-size="9.5" fill="#4A4A52">voice/asr.js</text>
+
+  <!-- 3 · translate -->
+  <rect class="node lit l3" x="406" y="96" width="182" height="88" rx="16"/>
+  <rect x="418" y="86" width="96" height="20" rx="10" fill="#FFCB05" fill-opacity="0.13" stroke="#FFCB05" stroke-opacity="0.3"/>
+  <text class="f" x="466" y="100" text-anchor="middle" font-size="9.5" font-weight="800" letter-spacing="0.8" fill="#FFCB05">TW / KUS ONLY</text>
+  <text class="f" x="497" y="134" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">TRANSLATE</text>
+  <text class="f" x="497" y="154" text-anchor="middle" font-size="11" font-weight="600" fill="#8A8A92">Khaya &#183; local &#8594; English</text>
+  <text class="m" x="497" y="172" text-anchor="middle" font-size="9.5" fill="#4A4A52">voice/khayaPipeline.js</text>
+
+  <!-- 4 · understand -->
+  <rect class="node lit l4" x="618" y="96" width="182" height="88" rx="16"/>
+  <text class="f" x="709" y="124" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF">UNDERSTAND</text>
+  <text class="f" x="709" y="145" text-anchor="middle" font-size="11" font-weight="600" fill="#8A8A92">rules first &#183; LLM optional</text>
+  <text class="f" x="709" y="160" text-anchor="middle" font-size="11" font-weight="600" fill="#8A8A92">and only above 0.55</text>
+  <text class="m" x="709" y="176" text-anchor="middle" font-size="9.5" fill="#4A4A52">voice/understand.js</text>
+
+  <!-- 5 · dialogue -->
+  <rect class="node lit l5" x="830" y="96" width="182" height="88" rx="16"/>
+  <text class="f" x="921" y="124" text-anchor="middle" font-size="13" font-weight="800" fill="#FFCB05">DIALOGUE FSM</text>
+  <text class="f" x="921" y="145" text-anchor="middle" font-size="11" font-weight="600" fill="#8A8A92">slots &#183; readback</text>
+  <text class="f" x="921" y="160" text-anchor="middle" font-size="11" font-weight="600" fill="#8A8A92">pure &#183; fully tested</text>
+  <text class="m" x="921" y="176" text-anchor="middle" font-size="9.5" fill="#4A4A52">voice/dialogue.js</text>
+
+  <!-- outputs -->
+  <rect class="node lit l6" x="1054" y="64" width="150" height="68" rx="14"/>
+  <text class="f" x="1129" y="92" text-anchor="middle" font-size="12.5" font-weight="800" fill="#FFFFFF">SCREEN FILLS</text>
+  <text class="f" x="1129" y="112" text-anchor="middle" font-size="10.5" font-weight="600" fill="#8A8A92">real form, prefilled</text>
+
+  <rect class="node lit l6" x="1054" y="172" width="150" height="68" rx="14"/>
+  <text class="f" x="1129" y="200" text-anchor="middle" font-size="12.5" font-weight="800" fill="#FFFFFF">ZIGI SPEAKS</text>
+  <text class="f" x="1129" y="220" text-anchor="middle" font-size="10.5" font-weight="600" fill="#8A8A92">Khaya TTS / Web Speech</text>
+
+  <!-- pin handoff -->
+  <rect x="1054" y="272" width="150" height="60" rx="14" fill="#FFCB05" fill-opacity="0.08" stroke="#FFCB05" stroke-opacity="0.35" stroke-width="1.5"/>
+  <text class="f" x="1129" y="298" text-anchor="middle" font-size="12" font-weight="800" fill="#FFCB05">&#128274; PIN GATE</text>
+  <text class="f" x="1129" y="317" text-anchor="middle" font-size="10" font-weight="600" fill="#9A9AA2">assistant never sees it</text>
+  <path class="link" d="M1129 240 V266" marker-end="url(#p-arrow)"/>
+
+  <!-- proxy lane -->
+  <rect x="194" y="256" width="818" height="76" rx="16" fill="#FFFFFF" fill-opacity="0.03" stroke="#2C2C33" stroke-width="1.5" stroke-dasharray="7 6"/>
+  <text class="f" x="216" y="284" font-size="12" font-weight="800" letter-spacing="1.4" fill="#FFCB05">SAME-ORIGIN PROXY</text>
+  <text class="f" x="216" y="306" font-size="12" font-weight="500" fill="#8A8A92">Every provider call is routed through <tspan class="m" fill="#C9C9D1">/api/*</tspan>. Keys are injected server-side, rate-limited, and never enter the browser bundle.</text>
+  <text class="m" x="216" y="324" font-size="9.5" fill="#4A4A52">api/_lib/handlers.js</text>
+
+  <g class="link" stroke-dasharray="4 5" opacity="0.5">
+    <path d="M285 184 V256"/>
+    <path d="M497 184 V256"/>
+    <path d="M709 184 V256"/>
+  </g>
+</svg>

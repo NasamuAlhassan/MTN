@@ -1,0 +1,26 @@
+export const UI_EN = {
+  assistantTitle: "Zigi",
+  assistantSubtitle: "Voice Assistant",
+  chooseLanguage: "Choose your language",
+  chooseLanguageHint: "Kasa wo kasa mu · Speak in your language",
+  switchLanguage: "Switch language",
+  pickLanguage: "Pick a language",
+  chooseLanguageToStart: "Choose a language to start",
+  preparingVoice: "Preparing voice…",
+  speaking: "Speaking…",
+  listening: "Listening…",
+  pleaseConfirm: "Please confirm",
+  yes: "Yes",
+  no: "No",
+  inputPlaceholder: "Say what you want to do…",
+  suggestion1: "I want data for the night",
+  suggestion2: "Send 20 cedis to Prince",
+  suggestion3: "I want small data for WhatsApp",
+  suggestion4: "Buy me airtime",
+  pinTitle: "Enter your MoMo PIN",
+  pinSubtitle: "Only you know this.\nThe assistant never sees it.",
+  pinCancel: "Cancel",
+  voiceFailed: "Voice playback failed. Try again.",
+};
+
+export const SUGGESTION_KEYS = ["suggestion1", "suggestion2", "suggestion3", "suggestion4"];

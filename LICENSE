@@ -1,0 +1,26 @@
+Copyright (c) 2026 Prince Nalhassan. All rights reserved.
+
+Zigi Voice — MyMTN Concept Prototype
+
+This software is an UNOFFICIAL concept prototype. It is not affiliated with,
+authorised by, or endorsed by MTN Group, MobileMoney Fintech Limited (MMFL), or
+any of their affiliates. "MTN", "MyMTN", "MoMo", and related names and marks are
+the trademarks of their respective owners and are used here only for
+illustrative, non-commercial, educational demonstration.
+
+Permission is granted to view and evaluate this source code for personal,
+educational, and non-commercial purposes only. You may not use it commercially,
+redistribute it, or deploy it as a live product — in particular you may not
+present it as an official MTN/MMFL product or connect it to real customer,
+payment, or MoMo systems — without prior written permission from the copyright
+holder and any required authorisation from the relevant trademark owners.
+
+No real money moves through this prototype and no live financial backend is
+integrated.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
