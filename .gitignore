@@ -11,3 +11,6 @@ test-results
 
 # Local design references only — third-party screenshots/creative are never published.
 public/ref
+
+# Local agent/editor tooling
+.claude
