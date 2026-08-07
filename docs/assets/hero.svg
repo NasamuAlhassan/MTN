@@ -1,49 +1,133 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 440" width="1280" height="440" role="img" aria-label="Zigi Voice — it understands the need, not the menu name. Speak Twi, Kusaal or English; Zigi maps what you say to the right product, reads it back, and stops at the PIN.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 440" width="1280" height="440" role="img" aria-label="Zigi Voice — a voice-first, local-language assistant for a MyMTN-style app. Speak Twi, Kusaal or English; Zigi understands the need, not the menu name.">
   <defs>
+    <linearGradient id="h-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B0B0C"/>
+      <stop offset="0.55" stop-color="#050506"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+    <radialGradient id="h-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FFCB05" stop-opacity="0.22"/>
+      <stop offset="0.6" stop-color="#FFCB05" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#FFCB05" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="h-bar" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#FFCB05" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#FFCB05" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="h-rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFCB05" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#FFCB05" stop-opacity="0"/>
+    </linearGradient>
+
     <style><![CDATA[
-      .s { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
-      .m { font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace; }
+      .f { font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+      .m { font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; }
 
-      /* Only the demo line moves. Three utterances, cut cleanly, 5s each. */
-      .rot { opacity: 0; animation: rot 15s linear infinite; }
-      @keyframes rot { 0%, 31% { opacity: 1; } 33%, 100% { opacity: 0; } }
-      .r2 { animation-delay: 5s; }
-      .r3 { animation-delay: 10s; }
+      .bar {
+        fill: url(#h-bar);
+        transform-box: fill-box;
+        transform-origin: 50% 50%;
+        animation: eq 1.7s ease-in-out infinite;
+      }
+      @keyframes eq {
+        0%, 100% { transform: scaleY(0.14); }
+        50%      { transform: scaleY(1); }
+      }
 
-      .caret { animation: caret 1.06s steps(1) infinite; }
-      @keyframes caret { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+      /* Each utterance/outcome pair holds the stage for a third of a 16.5s loop. */
+      .pair {
+        opacity: 0;
+        transform-box: fill-box;
+        animation: cycle 16.5s ease-in-out infinite;
+      }
+      @keyframes cycle {
+        0%    { opacity: 0; transform: translateY(9px); }
+        2.5%  { opacity: 1; transform: translateY(0); }
+        29%   { opacity: 1; transform: translateY(0); }
+        32%   { opacity: 0; transform: translateY(-9px); }
+        100%  { opacity: 0; transform: translateY(-9px); }
+      }
+      .p2 { animation-delay: 5.5s; }
+      .p3 { animation-delay: 11s; }
+
+      .live { animation: live 1.7s ease-in-out infinite; }
+      @keyframes live { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+
+      .sweep { animation: sweep 16.5s ease-in-out infinite; }
+      @keyframes sweep { 0%, 100% { opacity: 0.25; } 50% { opacity: 0.6; } }
     ]]></style>
   </defs>
 
-  <rect width="1280" height="440" fill="#FFCB05"/>
+  <rect width="1280" height="440" fill="url(#h-bg)"/>
+  <ellipse cx="1010" cy="210" rx="470" ry="330" fill="url(#h-glow)"/>
 
-  <text class="s" x="88" y="80" font-size="11.5" font-weight="700" letter-spacing="2.4" fill="#000000" fill-opacity="0.55">UNOFFICIAL CONCEPT PROTOTYPE</text>
-
-  <text class="s" x="84" y="198" font-size="102" font-weight="700" letter-spacing="-4.5" fill="#111111">Zigi Voice</text>
-
-  <path d="M88 233.5H1192" stroke="#000000" stroke-opacity="0.22" stroke-width="1"/>
-
-  <text class="s" x="88" y="288" font-size="30" font-weight="700" letter-spacing="-0.8" fill="#111111">It understands the need,</text>
-  <text class="s" x="88" y="324" font-size="30" font-weight="700" letter-spacing="-0.8" fill="#111111">not the menu name.</text>
-
-  <text class="s" x="88" y="362" font-size="15.5" font-weight="500" fill="#111111" fill-opacity="0.7">Speak Twi, Kusaal or English. Zigi works out which product</text>
-  <text class="s" x="88" y="383" font-size="15.5" font-weight="500" fill="#111111" fill-opacity="0.7">you mean, reads it back, and stops at the PIN.</text>
-
-  <text class="s" x="88" y="418" font-size="11.5" font-weight="700" letter-spacing="1.8" fill="#000000" fill-opacity="0.45">TWI &#183; KUSAAL &#183; ENGLISH</text>
-
-  <!-- demo card -->
-  <rect x="700" y="262" width="492" height="112" fill="#111111"/>
-
-  <g class="rot">
-    <text class="m" x="724" y="306" font-size="16.5" fill="#FFFFFF">&#8220;I want data for the night&#8221;<tspan class="caret" fill="#FFCB05">_</tspan></text>
-    <text class="s" x="724" y="340" font-size="13.5" font-weight="600" fill="#FFCB05">&#8594; <tspan fill="#8E8E88">Midnight Bundle &#183; 1.5GB &#183; GHS 2 &#183; 12am&#8211;5am</tspan></text>
+  <!-- faint baseline grid -->
+  <g stroke="#FFFFFF" stroke-opacity="0.035" stroke-width="1">
+    <path d="M0 110.5H1280M0 220.5H1280M0 330.5H1280"/>
+    <path d="M320.5 0V440M640.5 0V440M960.5 0V440"/>
   </g>
-  <g class="rot r2">
-    <text class="m" x="724" y="306" font-size="16.5" fill="#FFFFFF">&#8220;Send 20 cedis to Prince&#8221;<tspan class="caret" fill="#FFCB05">_</tspan></text>
-    <text class="s" x="724" y="340" font-size="13.5" font-weight="600" fill="#FFCB05">&#8594; <tspan fill="#8E8E88">MoMo &#183; GHS 20 &#183; read back before the PIN</tspan></text>
+
+  <!-- status chip -->
+  <g>
+    <rect x="80" y="52" width="320" height="32" rx="16" fill="#FFCB05" fill-opacity="0.10" stroke="#FFCB05" stroke-opacity="0.35"/>
+    <circle class="live" cx="100" cy="68" r="4.5" fill="#FFCB05"/>
+    <text class="f" x="116" y="73" font-size="12.5" font-weight="700" letter-spacing="1.7" fill="#FFCB05">UNOFFICIAL CONCEPT PROTOTYPE</text>
   </g>
-  <g class="rot r3">
-    <text class="m" x="724" y="306" font-size="16.5" fill="#FFFFFF">&#8220;Data that won&#8217;t finish&#8221;<tspan class="caret" fill="#FFCB05">_</tspan></text>
-    <text class="s" x="724" y="340" font-size="13.5" font-weight="600" fill="#FFCB05">&#8594; <tspan fill="#8E8E88">Flexi Data Bundle &#183; non-expiry &#183; from GHS 0.03</tspan></text>
+
+  <!-- wordmark -->
+  <text class="f" x="78" y="188" font-size="94" font-weight="800" letter-spacing="-3.2" fill="#FFFFFF">ZIGI<tspan fill="#FFCB05"> VOICE</tspan></text>
+  <rect x="82" y="206" width="360" height="3" rx="1.5" fill="url(#h-rule)"/>
+
+  <text class="f" x="82" y="248" font-size="21" font-weight="600" fill="#B9B9BD">A voice-first, local-language assistant for a MyMTN-style app.</text>
+  <text class="f" x="82" y="278" font-size="18" font-weight="500" fill="#6E6E76">It understands the <tspan fill="#FFCB05" font-weight="700">need</tspan>, not the menu name.</text>
+
+  <!-- rotating utterance → resolved product -->
+  <g class="pair">
+    <text class="m" x="82" y="345" font-size="18.5" fill="#EDEDF0">&#8220;I want data for the night&#8221;</text>
+    <text class="f" x="82" y="380" font-size="15" font-weight="700" fill="#FFCB05">&#8594;<tspan fill="#8A8A92" font-weight="600" dx="10">Midnight Bundle &#183; 1.5GB &#183; GHS 2 &#183; 12am&#8211;5am</tspan></text>
+  </g>
+  <g class="pair p2">
+    <text class="m" x="82" y="345" font-size="18.5" fill="#EDEDF0">&#8220;Send 20 cedis to Prince&#8221;</text>
+    <text class="f" x="82" y="380" font-size="15" font-weight="700" fill="#FFCB05">&#8594;<tspan fill="#8A8A92" font-weight="600" dx="10">MoMo transfer &#183; GHS 20 &#183; Prince Mensah &#183; read back before PIN</tspan></text>
+  </g>
+  <g class="pair p3">
+    <text class="m" x="82" y="345" font-size="18.5" fill="#EDEDF0">&#8220;Data that won&#8217;t finish&#8221;</text>
+    <text class="f" x="82" y="380" font-size="15" font-weight="700" fill="#FFCB05">&#8594;<tspan fill="#8A8A92" font-weight="600" dx="10">Flexi Data Bundle &#183; non-expiry &#183; from GHS 0.03</tspan></text>
+  </g>
+
+  <!-- equaliser -->
+  <g class="sweep" transform="translate(880,220)">
+    <g>
+      <rect class="bar" x="0"   y="-16" width="7" height="32" rx="3.5" style="animation-delay:-0.10s"/>
+      <rect class="bar" x="16"  y="-30" width="7" height="60" rx="3.5" style="animation-delay:-0.45s"/>
+      <rect class="bar" x="32"  y="-52" width="7" height="104" rx="3.5" style="animation-delay:-0.80s"/>
+      <rect class="bar" x="48"  y="-38" width="7" height="76" rx="3.5" style="animation-delay:-0.25s"/>
+      <rect class="bar" x="64"  y="-70" width="7" height="140" rx="3.5" style="animation-delay:-1.15s"/>
+      <rect class="bar" x="80"  y="-46" width="7" height="92" rx="3.5" style="animation-delay:-0.60s"/>
+      <rect class="bar" x="96"  y="-88" width="7" height="176" rx="3.5" style="animation-delay:-1.45s"/>
+      <rect class="bar" x="112" y="-58" width="7" height="116" rx="3.5" style="animation-delay:-0.35s"/>
+      <rect class="bar" x="128" y="-100" width="7" height="200" rx="3.5" style="animation-delay:-0.95s"/>
+      <rect class="bar" x="144" y="-62" width="7" height="124" rx="3.5" style="animation-delay:-1.60s"/>
+      <rect class="bar" x="160" y="-84" width="7" height="168" rx="3.5" style="animation-delay:-0.05s"/>
+      <rect class="bar" x="176" y="-44" width="7" height="88" rx="3.5" style="animation-delay:-1.30s"/>
+      <rect class="bar" x="192" y="-66" width="7" height="132" rx="3.5" style="animation-delay:-0.70s"/>
+      <rect class="bar" x="208" y="-34" width="7" height="68" rx="3.5" style="animation-delay:-1.05s"/>
+      <rect class="bar" x="224" y="-54" width="7" height="108" rx="3.5" style="animation-delay:-0.20s"/>
+      <rect class="bar" x="240" y="-26" width="7" height="52" rx="3.5" style="animation-delay:-1.50s"/>
+      <rect class="bar" x="256" y="-42" width="7" height="84" rx="3.5" style="animation-delay:-0.85s"/>
+      <rect class="bar" x="272" y="-18" width="7" height="36" rx="3.5" style="animation-delay:-0.40s"/>
+      <rect class="bar" x="288" y="-30" width="7" height="60" rx="3.5" style="animation-delay:-1.20s"/>
+      <rect class="bar" x="304" y="-14" width="7" height="28" rx="3.5" style="animation-delay:-0.55s"/>
+    </g>
+  </g>
+
+  <!-- language pills -->
+  <g class="f" font-size="13" font-weight="700" letter-spacing="0.6">
+    <rect x="880" y="352" width="86" height="30" rx="15" fill="#FFFFFF" fill-opacity="0.06" stroke="#FFFFFF" stroke-opacity="0.14"/>
+    <text x="923" y="371" text-anchor="middle" fill="#E6E6EA">TWI</text>
+    <rect x="976" y="352" width="110" height="30" rx="15" fill="#FFFFFF" fill-opacity="0.06" stroke="#FFFFFF" stroke-opacity="0.14"/>
+    <text x="1031" y="371" text-anchor="middle" fill="#E6E6EA">KUSAAL</text>
+    <rect x="1096" y="352" width="110" height="30" rx="15" fill="#FFCB05" fill-opacity="0.14" stroke="#FFCB05" stroke-opacity="0.4"/>
+    <text x="1151" y="371" text-anchor="middle" fill="#FFCB05">ENGLISH</text>
   </g>
 </svg>
